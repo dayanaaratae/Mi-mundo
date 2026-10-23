@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Solicitudes Vacacionales</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Dashboard de Solicitudes Vacacionales</h1>
+    </header>
+
+    <main class="container">
+        <!-- Tarjetas de Métricas (KPIs) -->
+        <section class="kpi-container">
+            <div class="card-kpi">
+                <h3>Solicitudes Aprobadas</h3>
+                <p>{{ aprobados }}</p>
+            </div>
+            <div class="card-kpi">
+                <h3>Vacaciones Prolongadas (≥10d)</h3>
+                <p>{{ prolongadas }}</p>
+            </div>
+            <div class="card-kpi">
+                <h3>Promedio Días / Solicitud</h3>
+                <p>{{ promedio_dias }} días</p>
+            </div>
+        </section>
+
+        <!-- Gráficos -->
+        <section class="charts-container">
+            <div class="card-chart">
+                <img src="data:image/png;base64,{{ grafico_barras }}" alt="Días Solicitados por Área">
+            </div>
+            <div class="card-chart">
+                <img src="data:image/png;base64,{{ grafico_dona }}" alt="Distribución por Estado">
+            </div>
+        </section>
+    </main>
+</body>
+</html>
